@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 var login = require('./routes/login');
-
+var signup = require('./routes/signup');
+var index = require('./routes/index');
 var app = express();
 
 // view engine setup
@@ -21,7 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 console.log("rechead");
 app.use('/login', login);
-
+app.use('/signup',signup);
+app.use('/index',index);
 
 app.use(function(req, res, next) {
   next(createError(404));
